@@ -5,7 +5,7 @@ navbar_name: "Lingxiao Han"
 positions:
 - name: PhD student in HKUST(GZ) CMA
 - name: Cross Quantum Artistic Practices (xQAP) Group
-  logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
+  logo: /assets/images/photos/xqap_logo_cube.webp  # Logo is optional
 
 
 email: "lhan721@connect.hkust-gz.edu.cn"
@@ -31,7 +31,7 @@ short_bio: >-
     His artistic works, recognized for both their technical innovation and audience engagement, have been regularly selected for conferences, concerts, and online showcases.
   </p>
 
-portrait_url: /assets/images/photos/LingxiaoHan.jpg
+portrait_url: /assets/images/photos/bio_pic1.jpg
 # portrait_caption: >-
 #   Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
@@ -58,9 +58,9 @@ education:
 #   date: Sep. 2019 - Jul. 2021
 
 awards:
-- name: Award Name 2
+- name: All achievements unlocked in Stardew Valley
   date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
+- name: Full completion of Don't Starve Together
+  date: 2023
+- name: All achievements unlocked in The Binding of Isaac Repentance
   date: 2021
