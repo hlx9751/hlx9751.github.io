@@ -1,0 +1,130 @@
+---
+layout: default
+title: Curriculum Tracker
+navbar_title: Curriculum
+---
+{% assign curriculum_items = site.data.curriculum.items %}
+{% assign finished_items = curriculum_items | where: "status", "finished" %}
+{% assign ongoing_items = curriculum_items | where: "status", "ongoing" %}
+{% assign finished_count = finished_items | size %}
+{% assign ongoing_count = ongoing_items | size %}
+{% assign tracked_count = curriculum_items | size %}
+{% assign progress_percent = finished_count | times: 100 | divided_by: tracked_count %}
+{% assign completed_credits = 0 %}
+{% for item in finished_items %}
+    {% assign item_credits = item.credits | default: 0 | plus: 0 %}
+    {% assign completed_credits = completed_credits | plus: item_credits %}
+{% endfor %}
+
+<div class="curriculum-page pb-5">
+    <section class="curriculum-hero shadow-sm rounded-xl mt-3 mb-4">
+        <div class="curriculum-hero-grid">
+            <div>
+                <div class="curriculum-kicker">HKUST(GZ) CMA</div>
+                <h1 class="curriculum-title">{{ site.data.curriculum.page_title }}</h1>
+                <p class="curriculum-intro mb-3">{{ site.data.curriculum.page_intro }}</p>
+                {% if site.data.curriculum.page_note %}
+                <p class="curriculum-note mb-0">{{ site.data.curriculum.page_note }}</p>
+                {% endif %}
+            </div>
+            <div class="curriculum-highlight">
+                <div class="curriculum-highlight-label">Completion Snapshot</div>
+                <div class="curriculum-highlight-value">{{ progress_percent }}%</div>
+                <div class="curriculum-highlight-meta">{{ finished_count }} finished / {{ tracked_count }} tracked</div>
+                <div class="curriculum-highlight-update">Last updated {{ site.data.curriculum.last_updated }}</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">PhD Credits</div>
+                <div class="curriculum-stat-value">{{ completed_credits }}/{{ site.data.curriculum.phd_credit_requirement }}</div>
+                <div class="curriculum-stat-subtitle">Completed credits toward PhD graduation</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">Required Courses</div>
+                <div class="curriculum-stat-value">{{ tracked_count }}</div>
+                <div class="curriculum-stat-subtitle">All courses required for graduation</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">Finished</div>
+                <div class="curriculum-stat-value">{{ finished_count }}</div>
+                <div class="curriculum-stat-subtitle">Completed and checked off</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">On Going</div>
+                <div class="curriculum-stat-value">{{ ongoing_count }}</div>
+                <div class="curriculum-stat-subtitle">Requirements or coursework still in progress</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum-table-card bg-white shadow-sm rounded-xl mt-2 overflow-auto">
+        <table class="table curriculum-table mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Course / Requirement</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Credit(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% assign current_term = "" %}
+                {% for item in curriculum_items %}
+                {% if item.term and item.term != current_term %}
+                {% assign current_term = item.term %}
+                <tr class="curriculum-term-row">
+                    <td colspan="4">{{ current_term }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td class="curriculum-code">{{ item.code }}</td>
+                    <td class="curriculum-course">{{ item.title }}</td>
+                    <td class="curriculum-status-cell">
+                        {% if item.status == "finished" %}
+                        <span class="curriculum-status curriculum-status-finished">
+                            <span class="curriculum-status-icon">✅</span>
+                            <span>Finished</span>
+                        </span>
+                        {% elsif item.status == "ongoing" %}
+                        <span class="curriculum-status curriculum-status-ongoing">
+                            <span class="curriculum-status-icon">🔥</span>
+                            <span>On Going</span>
+                        </span>
+                        {% else %}
+                        <span class="curriculum-status curriculum-status-planned">
+                            <span class="curriculum-status-icon">○</span>
+                            <span>{{ item.status }}</span>
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td class="curriculum-credits">{{ item.credits }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    {% if site.data.curriculum.reference_links %}
+    <section class="curriculum-links-card shadow-sm rounded-xl mt-4">
+        <div class="curriculum-links-title">Reference Links</div>
+        <div class="curriculum-links-list">
+            {% for link in site.data.curriculum.reference_links %}
+            <a class="curriculum-link-pill" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+                <span>{{ link.label }}</span>
+                <span class="curriculum-link-icon"><i class="fas fa-external-link-alt"></i></span>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>

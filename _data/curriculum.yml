@@ -1,0 +1,132 @@
+page_title: Curriculum Tracker
+page_intro: >-
+  A shareable progress page for tracking completed coursework and current degree
+  requirements in CMA at HKUST(GZ).
+phd_credit_requirement: 21
+last_updated: "May 2026"
+reference_links:
+  - label: Handbook for Research Postgraduate Studies
+    url: https://fytgs.hkust-gz.edu.cn/handbooks/handbook-for-research-postgraduate-studies
+  - label: CMA Program Curriculum
+    url: https://fytgs.hkust-gz.edu.cn/programs/computational-media-and-arts-5
+
+items:
+  - code: ELPA
+    term: 2026Spring
+    title: English Language Proficiency Assessment
+    status: finished
+    credits: "0"
+
+  - code: UCMP 6030 - L02
+    term: 2026Spring
+    title: Cross-disciplinary Design Thinking I
+    status: finished
+    credits: "2"
+
+  - code: PDEV 6770L - T01
+    term: 2026Spring
+    title: Professional Development for Research Postgraduate Students
+    status: finished
+    credits: "(1)"
+
+  - code: PDEV 6800Y - T01
+    term: 2026Spring
+    title: Introduction to Teaching and Learning in Higher Education
+    status: finished
+    credits: "(1)"
+
+  - code: INFH 5000 - L01
+    term: 2026Spring
+    title: Information Science and Technology Essentials and Trends
+    status: finished
+    credits: "2"
+
+  - code: INFH 6780 - T01
+    term: 2026Spring
+    title: Career Development for Information Hub Students
+    status: finished
+    credits: "(1)"
+
+  - code: CMAA 5030 - L01
+    term: 2026Spring
+    title: Interactive Music Systems Design
+    status: finished
+    credits: "3"
+
+  - code: CMAA 6102 - T01
+    term: 2026Spring
+    title: Computational Media and Arts Program Seminar II
+    status: finished
+    credits: "(1)"
+
+  - code: CMAA 6019I - L01
+    term: 2026Spring
+    title: Digital Fabrication & Physical Computing
+    status: finished
+    credits: "3"
+
+  - code: MOES 6001
+    term: 2026Spring
+    title: Marxism in China
+    status: finished
+    credits: "0"
+
+  - code: SOCH/SYSN/FUNH 5000
+    term: TBD
+    title: 
+    status: Upcoming
+    credits: "2"
+
+  - code: CMAA 6101
+    term: TBD
+    title: Computational Media and Arts Program Seminar I
+    status: Upcoming
+    credits: "0"
+
+  - code: PLED 5001
+    term: TBD
+    title: Communicating Research in English
+    status: Upcoming
+    credits: "(1)"
+
+  - code: CMAA XXXX
+    term: TBD
+    title: 
+    status: Upcoming
+    credits: "3"
+
+  - code: CMAA XXXX
+    term: TBD
+    title: 
+    status: Upcoming
+    credits: "3"
+
+  - code: CMAA XXXX
+    term: TBD
+    title: 
+    status: Upcoming
+    credits: "3"
+
+  - code: GTA1
+    term: TBD
+    title: Graduate Teaching Assistants I
+    status: Upcoming
+    credits: "0"
+
+  - code: GTA2
+    term: TBD
+    title: Graduate Teaching Assistants II
+    status: Upcoming
+    credits: "0"
+
+  - code: PQE
+    term: TBD
+    title: PhD Qualifying Examination
+    status: Upcoming
+    credits: "0"
+
+  - code: CMAA 7990
+    term: TBD
+    title: Doctoral Thesis Research
+    status: Upcoming
+    credits: "0"

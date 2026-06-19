@@ -31,10 +31,14 @@
                         </div>
                         <div class="text-profile-position">
                             {% for position in site.data.profile.positions %}
-                            {% if position.logo -%}
-                            <img src="{{ position.logo | relative_url }}" alt="Logo" class="inline-badge"/>
-                            {%- endif %}
-                            {{ position.name }}<br/>
+                            <div class="profile-position-row{% if position.logo %} profile-position-row-with-logo{% endif %}">
+                                {% if position.logo -%}
+                                <span class="profile-position-logo-wrap">
+                                    <img src="{{ position.logo | relative_url }}" alt="Logo" class="profile-position-logo"/>
+                                </span>
+                                {%- endif %}
+                                <span class="profile-position-text">{{ position.name }}</span>
+                            </div>
                             {% endfor %}
                         </div>
                         <div class="text-profile-bio mt-3" {% if site.data.profile.short_bio_text_justify %}style="text-align: justify;"{% endif %}>
