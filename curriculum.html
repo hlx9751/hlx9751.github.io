@@ -5,7 +5,9 @@ navbar_title: Curriculum
 ---
 {% assign curriculum_items = site.data.curriculum.items %}
 {% assign finished_items = curriculum_items | where: "status", "finished" %}
-{% assign ongoing_items = curriculum_items | where: "status", "ongoing" %}
+{% assign ongoing_items_lower = curriculum_items | where: "status", "ongoing" %}
+{% assign ongoing_items_camel = curriculum_items | where: "status", "OnGoing" %}
+{% assign ongoing_items = ongoing_items_lower | concat: ongoing_items_camel %}
 {% assign finished_count = finished_items | size %}
 {% assign ongoing_count = ongoing_items | size %}
 {% assign tracked_count = curriculum_items | size %}
@@ -60,7 +62,7 @@ navbar_title: Curriculum
         </div>
         <div class="col-md-3 mb-3">
             <div class="curriculum-stat-card shadow-sm rounded-xl">
-                <div class="curriculum-stat-label">On Going</div>
+                <div class="curriculum-stat-label">🔥On Going</div>
                 <div class="curriculum-stat-value">{{ ongoing_count }}</div>
                 <div class="curriculum-stat-subtitle">Requirements or coursework still in progress</div>
             </div>
@@ -95,10 +97,9 @@ navbar_title: Curriculum
                             <span class="curriculum-status-icon">✅</span>
                             <span>Finished</span>
                         </span>
-                        {% elsif item.status == "ongoing" %}
+                        {% elsif item.status == "ongoing" or item.status == "OnGoing" %}
                         <span class="curriculum-status curriculum-status-ongoing">
-                            <span class="curriculum-status-icon">🔥</span>
-                            <span>On Going</span>
+                            <span>🔥On Going</span>
                         </span>
                         {% else %}
                         <span class="curriculum-status curriculum-status-planned">

@@ -71,49 +71,49 @@ items:
     status: finished
     credits: "0"
 
-  - code: SOCH/SYSN/FUNH 5000
-    term: TBD
-    title: 
-    status: Upcoming
+  - code: FUNH 5000 - L05
+    term: 2026Fall
+    title: Introduction to Function Hub for Sustainable Future
+    status: OnGoing
     credits: "2"
 
-  - code: CMAA 6101
-    term: TBD
+  - code: CMAA 6101 - T01
+    term: 2026Fall
     title: Computational Media and Arts Program Seminar I
-    status: Upcoming
+    status: OnGoing
     credits: "0"
 
   - code: PLED 5001
-    term: TBD
+    term: 2026Fall
     title: Communicating Research in English
-    status: Upcoming
+    status: OnGoing
     credits: "(1)"
 
-  - code: CMAA XXXX
-    term: TBD
-    title: 
-    status: Upcoming
+  - code: CMAA 6018A - R31
+    term: 2026Fall
+    title: Independent Study
+    status: OnGoing
     credits: "3"
 
-  - code: CMAA XXXX
-    term: TBD
-    title: 
-    status: Upcoming
+  - code: CMAA 5016 - L01
+    term: 2026Fall
+    title: Creative Coding
+    status: OnGoing
     credits: "3"
 
-  - code: CMAA XXXX
-    term: TBD
-    title: 
-    status: Upcoming
+  - code: CMAA 5040 - L01
+    term: 2026Fall
+    title: Sensor Technologies in Computational Arts and HCI
+    status: OnGoing
     credits: "3"
 
-  - code: GTA1
-    term: TBD
+  - code: TA For CMAA 5045 Fabrication & Phys Computing
+    term: 2026Fall
     title: Graduate Teaching Assistants I
-    status: Upcoming
+    status: OnGoing
     credits: "0"
 
-  - code: GTA2
+  - code: TA2
     term: TBD
     title: Graduate Teaching Assistants II
     status: Upcoming
