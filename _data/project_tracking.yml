@@ -1,0 +1,75 @@
+# Add your project tracking data here.
+# Supported project fields:
+# - name
+# - category
+# - start_date
+# - status: finished / OnGoing / Upcoming
+# - description
+# - subtasks:
+#   - title
+#     start_date
+#     status: finished / OnGoing / Upcoming
+#     notes
+#
+# Example:
+# projects:
+#   - name: Quantum Performance Toolkit
+#     category: Research Project
+#     start_date: "2026-09-01"
+#     status: OnGoing
+#     description: Toolkit design, testing, and documentation.
+#     subtasks:
+#       - title: Draft system architecture
+#         start_date: "2026-09-01"
+#         status: finished
+#         notes: First version completed.
+#       - title: Build OSC bridge prototype
+#         start_date: "2026-09-05"
+#         status: OnGoing
+#         notes: Testing message routing.
+#       - title: Write deployment guide
+#         start_date: "2026-09-10"
+#         status: Upcoming
+#         notes: Pending after prototype validation.
+
+page_title: CMAA6018A Independent Study Project Tracking System
+page_intro: >-
+  A project-based tracker for managing ongoing work, logging each project start
+  date, and monitoring progress through subtask completion.
+page_note: >-
+
+last_updated: "September 2026"
+
+projects:
+  - name: 1st project
+    category: gemini hand book
+    start_date: "2026-09-15"
+    status: OnGoing
+    subtasks:
+      - title: Quantum Algorithms study notes
+        start_date: "2026-09-15"
+        status: finished
+      - title: Experiment file and record
+        start_date: "2026-09-15"
+        status: OnGoing
+      - title: Artistic practice project
+        start_date: "2026-09-15"
+        status: Upcoming
+      - title: Journals, Documents, Assets
+        start_date: "2026-09-15"
+        status: Upcoming
+        
+  - name: 2nd project
+    category: gemini hand book
+    start_date: "2026-09-22"
+    status: Upcoming
+    subtasks:
+      - title: Quantum Algorithms study notes
+        start_date: "2026-09-22"
+        status: Upcoming
+      - title: Experiment file and record
+        start_date: "2026-09-22"
+        status: Upcoming
+      - title: Artistic practice project
+        start_date: "2026-09-22"
+        status: Upcoming

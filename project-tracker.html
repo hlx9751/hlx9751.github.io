@@ -1,0 +1,176 @@
+---
+layout: default
+title: Project Tracking System
+navbar_title: Projects
+---
+{% assign tracker = site.data.project_tracking %}
+{% assign projects = tracker.projects | default: empty %}
+{% assign total_projects = projects | size %}
+{% assign total_subtasks = 0 %}
+{% assign finished_subtasks = 0 %}
+{% assign ongoing_projects = 0 %}
+{% for project in projects %}
+    {% assign project_subtasks = project.subtasks | default: empty %}
+    {% assign project_subtask_count = project_subtasks | size %}
+    {% assign total_subtasks = total_subtasks | plus: project_subtask_count %}
+    {% assign project_finished_subtasks = project_subtasks | where: "status", "finished" %}
+    {% assign project_finished_count = project_finished_subtasks | size %}
+    {% assign finished_subtasks = finished_subtasks | plus: project_finished_count %}
+    {% if project.status == "OnGoing" or project.status == "ongoing" %}
+        {% assign ongoing_projects = ongoing_projects | plus: 1 %}
+    {% endif %}
+{% endfor %}
+{% if total_subtasks > 0 %}
+    {% assign overall_progress = finished_subtasks | times: 100 | divided_by: total_subtasks %}
+{% else %}
+    {% assign overall_progress = 0 %}
+{% endif %}
+
+<div class="project-tracker-page pb-5">
+    <section class="curriculum-hero shadow-sm rounded-xl mt-3 mb-4">
+        <div class="curriculum-hero-grid">
+            <div>
+                <div class="curriculum-kicker">Project Progress</div>
+                <h1 class="curriculum-title">{{ tracker.page_title }}</h1>
+                <p class="curriculum-intro mb-3">{{ tracker.page_intro }}</p>
+                {% if tracker.page_note %}
+                <p class="curriculum-note mb-0">{{ tracker.page_note }}</p>
+                {% endif %}
+            </div>
+            <div class="curriculum-highlight">
+                <div class="curriculum-highlight-label">Overall Progress</div>
+                <div class="curriculum-highlight-value">{{ overall_progress }}%</div>
+                <div class="curriculum-highlight-meta">{{ finished_subtasks }} finished / {{ total_subtasks }} subtasks tracked</div>
+                <div class="curriculum-highlight-update">Last updated {{ tracker.last_updated }}</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">Projects</div>
+                <div class="curriculum-stat-value">{{ total_projects }}</div>
+                <div class="curriculum-stat-subtitle">All tracked projects</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">Subtasks</div>
+                <div class="curriculum-stat-value">{{ total_subtasks }}</div>
+                <div class="curriculum-stat-subtitle">Every tracked child task</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">Finished</div>
+                <div class="curriculum-stat-value">{{ finished_subtasks }}</div>
+                <div class="curriculum-stat-subtitle">Completed subtasks</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="curriculum-stat-card shadow-sm rounded-xl">
+                <div class="curriculum-stat-label">🔥On Going</div>
+                <div class="curriculum-stat-value">{{ ongoing_projects }}</div>
+                <div class="curriculum-stat-subtitle">Projects currently in progress</div>
+            </div>
+        </div>
+    </section>
+
+    {% if total_projects > 0 %}
+    <section class="project-tracker-list">
+        {% for project in projects %}
+        {% assign subtasks = project.subtasks | default: empty %}
+        {% assign subtask_count = subtasks | size %}
+        {% assign project_finished_subtasks = subtasks | where: "status", "finished" %}
+        {% assign finished_count = project_finished_subtasks | size %}
+        {% if subtask_count > 0 %}
+            {% assign project_progress = finished_count | times: 100 | divided_by: subtask_count %}
+        {% else %}
+            {% assign project_progress = 0 %}
+        {% endif %}
+        <article class="project-card shadow-sm rounded-xl">
+            <div class="project-card-header">
+                <div>
+                    <div class="project-card-kicker">{{ project.category | default: "Project" }}</div>
+                    <h2 class="project-card-title">{{ project.name }}</h2>
+                    {% if project.description %}
+                    <p class="project-card-description mb-0">{{ project.description }}</p>
+                    {% endif %}
+                </div>
+                <div class="project-card-summary">
+                    <div class="project-card-summary-label">Progress</div>
+                    <div class="project-card-summary-value">{{ project_progress }}%</div>
+                    <div class="project-card-summary-meta">{{ finished_count }} / {{ subtask_count }} subtasks finished</div>
+                </div>
+            </div>
+
+            <div class="project-meta-list">
+                <span class="project-meta-pill">
+                    <strong>Start:</strong> {{ project.start_date | default: "TBD" }}
+                </span>
+                <span class="project-meta-pill">
+                    <strong>Status:</strong>
+                    {% if project.status == "finished" %}
+                    ✅ Finished
+                    {% elsif project.status == "OnGoing" or project.status == "ongoing" %}
+                    🔥 On Going
+                    {% else %}
+                    ○ {{ project.status | default: "Upcoming" }}
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="project-progress-track" aria-label="{{ project.name }} progress">
+                <div class="project-progress-fill" style="width: {{ project_progress }}%;"></div>
+            </div>
+
+            <div class="project-table-wrap mt-3">
+                <table class="table project-table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Subtask</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if subtask_count > 0 %}
+                            {% for subtask in subtasks %}
+                            <tr>
+                                <td class="project-subtask-name">{{ subtask.title }}</td>
+                                <td class="project-subtask-date">{{ subtask.start_date | default: "TBD" }}</td>
+                                <td class="project-subtask-status">
+                                    {% if subtask.status == "finished" %}
+                                    <span class="curriculum-status curriculum-status-finished">✅ Finished</span>
+                                    {% elsif subtask.status == "OnGoing" or subtask.status == "ongoing" %}
+                                    <span class="curriculum-status curriculum-status-ongoing">🔥 On Going</span>
+                                    {% else %}
+                                    <span class="curriculum-status curriculum-status-planned">○ {{ subtask.status | default: "Upcoming" }}</span>
+                                    {% endif %}
+                                </td>
+                                <td class="project-subtask-notes">{{ subtask.notes | default: "-" }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="4" class="project-empty-row">Add subtasks in `_data/project_tracking.yml` to start tracking this project.</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+    {% else %}
+    <section class="project-empty-state shadow-sm rounded-xl mt-2">
+        <div class="project-empty-state-title">No projects added yet</div>
+        <p class="project-empty-state-body mb-0">
+            Add your project name, start date, and subtasks in `_data/project_tracking.yml`.
+            The page will automatically calculate each project's progress bar from finished subtasks.
+        </p>
+    </section>
+    {% endif %}
+</div>
