@@ -1,4 +1,11 @@
-{% assign news_by_year = site.news | sort: "date" | reverse | slice: 0, include.limit | group_by_exp: "item", "item.date | date: '%Y'" -%}
+{% assign sorted_news = site.news | sort: "date" | reverse -%}
+{% assign news_limit = include.limit | default: 0 | plus: 0 -%}
+{% if news_limit > 0 -%}
+    {% assign visible_news = sorted_news | slice: 0, news_limit -%}
+{% else -%}
+    {% assign visible_news = sorted_news -%}
+{% endif -%}
+{% assign news_by_year = visible_news | group_by_exp: "item", "item.date | date: '%Y'" -%}
 
 <div class="my-3 bg-white shadow-sm rounded-xl">
     <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-rss"></i> News</h6>

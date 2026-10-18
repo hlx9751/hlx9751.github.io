@@ -1,0 +1,47 @@
+---
+layout: default
+container_class: container-xl
+---
+<div class="work-detail-page pb-5">
+    <section class="work-detail-hero shadow-sm rounded-xl mt-3 mb-4">
+        <div class="work-detail-grid">
+            <div>
+                <div class="curriculum-kicker">Works</div>
+                <h1 class="curriculum-title">{{ page.title }}</h1>
+                {% if page.work_intro %}
+                <p class="curriculum-intro mb-3">{{ page.work_intro }}</p>
+                {% endif %}
+                <div class="work-detail-actions">
+                    <a class="curriculum-link-pill" href="{{ '/works' | relative_url }}">
+                        <span><i class="fas fa-arrow-left"></i> Back to Works</span>
+                    </a>
+                    {% if page.work_external_url %}
+                    <a class="curriculum-link-pill" href="{{ page.work_external_url }}" target="_blank" rel="noopener noreferrer">
+                        <span><i class="fas fa-external-link-alt"></i> Open Original Media</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="work-detail-meta-card">
+                <div class="curriculum-highlight-label">Detail Page</div>
+                <div class="work-detail-meta-title">{{ page.title }}</div>
+                <div class="curriculum-highlight-meta">Embedded preview, title, and description template hosted in this repository.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="work-detail-embed-card shadow-sm rounded-xl">
+        <iframe
+            src="{{ page.work_embed_url }}"
+            class="work-detail-frame"
+            allow="autoplay">
+        </iframe>
+    </section>
+
+    <section class="work-detail-content-card shadow-sm rounded-xl mt-4">
+        <div class="work-detail-section-label">Work Overview</div>
+        <div class="work-detail-content">
+            {{ content }}
+        </div>
+    </section>
+</div>

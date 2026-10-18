@@ -37,39 +37,40 @@ page_intro: >-
   A project-based tracker for managing ongoing work, logging each project start
   date, and monitoring progress through subtask completion.
 page_note: >-
+  [Project repository](https://github.com/hlx9751/Play-Learn-Quantum-Algorithms)
 
 last_updated: "September 2026"
 
 projects:
-  - name: 1st project
+  - name: 1st project - Deutsch Algorithm
     category: gemini hand book
-    start_date: "2026-09-15"
+    start_date: "2026-10-08"
     status: OnGoing
     subtasks:
-      - title: Quantum Algorithms study notes
-        start_date: "2026-09-15"
+      - title: Study from Gemini Lab handbook
+        start_date: "2026-10-08"
         status: finished
       - title: Experiment file and record
-        start_date: "2026-09-15"
+        start_date: "2026-10-08"
         status: OnGoing
       - title: Artistic practice project
-        start_date: "2026-09-15"
+        start_date: "2026-10-08"
         status: Upcoming
       - title: Journals, Documents, Assets
-        start_date: "2026-09-15"
-        status: Upcoming
+        start_date: "2026-10-08"
+        status: OnGoing
         
-  - name: 2nd project
+  - name: 2nd project - Bernstein-Varirani Algorithm
     category: gemini hand book
-    start_date: "2026-09-22"
-    status: Upcoming
+    start_date: "2026-10-08"
+    status: OnGoing
     subtasks:
-      - title: Quantum Algorithms study notes
-        start_date: "2026-09-22"
-        status: Upcoming
+      - title: Study from Gemini Lab handbook
+        start_date: "2026-10-08"
+        status: OnGoing  
       - title: Experiment file and record
-        start_date: "2026-09-22"
+        start_date: "2026-10-08"
         status: Upcoming
       - title: Artistic practice project
-        start_date: "2026-09-22"
+        start_date: "2026-10-08"
         status: Upcoming

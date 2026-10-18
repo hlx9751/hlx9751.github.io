@@ -34,7 +34,7 @@ navbar_title: Projects
                 <h1 class="curriculum-title">{{ tracker.page_title }}</h1>
                 <p class="curriculum-intro mb-3">{{ tracker.page_intro }}</p>
                 {% if tracker.page_note %}
-                <p class="curriculum-note mb-0">{{ tracker.page_note }}</p>
+                <div class="curriculum-note mb-0">{{ tracker.page_note | markdownify }}</div>
                 {% endif %}
             </div>
             <div class="curriculum-highlight">
