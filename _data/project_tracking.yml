@@ -63,14 +63,17 @@ projects:
   - name: 2nd project - Bernstein-Varirani Algorithm
     category: gemini hand book
     start_date: "2026-10-08"
-    status: OnGoing
+    status: finished
     subtasks:
       - title: Study from Gemini Lab handbook
         start_date: "2026-10-08"
-        status: OnGoing  
+        status: finished
       - title: Experiment file and record
-        start_date: "2026-10-08"
-        status: Upcoming
+        start_date: "2026-10-15"
+        status: finished
       - title: Artistic practice project
-        start_date: "2026-10-08"
-        status: Upcoming
+        start_date: "2026-10-15"
+        status: finished
+      - title: Journals, Documents, Assets
+        start_date: "2026-10-22"
+        status: finished
